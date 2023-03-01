@@ -5,8 +5,8 @@ using UnityEngine;
 public class ColorPatch : MonoBehaviour
 {
     public Player.ColorBars color;
-    public float fireRate = 2f;
-    private float change = 2f;
+    public float fillRate = 2f;
+    private float fullTime = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,15 +16,14 @@ public class ColorPatch : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        change = Time.time + fireRate;
+        fullTime = Time.time + fillRate;
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if(Time.time > change)
+        if(Time.time > fullTime)
         {
-            change = Time.time + fireRate;
-            //print("touching");
+            fullTime = Time.time + fillRate;
             Player.play.fillBar(color);
         }
     }
@@ -32,6 +31,6 @@ public class ColorPatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+         
     }
 }
