@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public GameObject bar3;
 
     private List<ColorBars> colorBar = new List<ColorBars>();
+    public List<ColorBars> currBar => colorBar;
     private List<SpriteRenderer> barHUD = new List<SpriteRenderer>();
     private int barFill = 0;
     private bool full = false;
