@@ -2,27 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour
+public class Button: MonoBehaviour
 {
     public List<Player.ColorBars> reqList = new List<Player.ColorBars>();
     public ColorSwatchObject ColorSwatch;
     public GameObject toggles;
     public Player player;
 
-    private Switch currSwitch;
-    private bool toggled;
+    private Button currButton;
     private List<SpriteRenderer> barHUD = new List<SpriteRenderer>();
     private int numMet;
     private bool reqMet;
 
     void Awake()
     {
-        toggled = false;
         reqMet = false;
-        currSwitch = this;
+        currButton = this;
         for(int i = 0; i < reqList.Count; i++)
         {
-            barHUD.Add(currSwitch.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>());
+            barHUD.Add(currButton.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>());
 
             if (reqList[i] == Player.ColorBars.Red) barHUD[i].color = ColorSwatch.ColorSwatches[0];
             else if (reqList[i] == Player.ColorBars.Blue) barHUD[i].color = ColorSwatch.ColorSwatches[2];
@@ -35,12 +33,10 @@ public class Switch : MonoBehaviour
         if (reqMet && Input.GetKeyDown(KeyCode.Space))
         {
             print("space key was pressed");
-            if (toggled) toggled = false;
-            else toggled = true;
+            currButton.GetComponent<SpriteRenderer>().color = ColorSwatch.ColorSwatches[9];
+            player.ClearBar();
             Toggle();
         }
-        if (toggled) currSwitch.GetComponent<SpriteRenderer>().color = ColorSwatch.ColorSwatches[9];
-        else if (!toggled) currSwitch.GetComponent<SpriteRenderer>().color = ColorSwatch.ColorSwatches[12];
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -49,7 +45,7 @@ public class Switch : MonoBehaviour
         numMet = 0;
         foreach (Player.ColorBars color in player.currBar)
         {
-            for(int i = 0; i < reqList.Count; i++)
+            for(int i = 0; i < reqList.Count;i++)
             {
                 if(used != i && color == reqList[i])
                 {
@@ -69,16 +65,7 @@ public class Switch : MonoBehaviour
 
     void Toggle()
     {
-        if (toggled)
-        {
-            toggles.GetComponent<SpriteRenderer>().color = ColorSwatch.ColorSwatches[11];
-            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), toggles.GetComponent<Collider2D>());
-        }
-        else
-        {
-            toggles.GetComponent<SpriteRenderer>().color = ColorSwatch.ColorSwatches[12];
-            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), toggles.GetComponent<Collider2D>(), false);
-        }
-        
+        toggles.GetComponent<SpriteRenderer>().color = ColorSwatch.ColorSwatches[11];
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), toggles.GetComponent<Collider2D>());
     }
 }

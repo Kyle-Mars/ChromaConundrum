@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorPatch : MonoBehaviour
 {
     public Player.ColorBars color;
-    public float fillRate = 1.5f;
+    public float fillRate = 1f;
     private float fullTime;
 
     // Start is called before the first frame update
