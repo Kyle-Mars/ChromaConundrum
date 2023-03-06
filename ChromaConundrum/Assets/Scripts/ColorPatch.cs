@@ -8,12 +8,6 @@ public class ColorPatch : MonoBehaviour
     public float fillRate = 1f;
     private float fullTime;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void OnTriggerEnter2D(Collider2D col)
     {
         fullTime = Time.time + fillRate;
@@ -26,11 +20,5 @@ public class ColorPatch : MonoBehaviour
             fullTime = Time.time + fillRate;
             Player.play.fillBar(color);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-         
     }
 }

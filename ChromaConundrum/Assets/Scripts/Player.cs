@@ -22,17 +22,16 @@ public class Player : MonoBehaviour
     public GameObject bar1;
     public GameObject bar2;
     public GameObject bar3;
+    public float stepDist = 4f;
 
     private List<ColorBars> colorBar = new List<ColorBars>();
     public List<ColorBars> currBar => colorBar;
     private List<SpriteRenderer> barHUD = new List<SpriteRenderer>();
     private int barFill = 0;
     private bool full = false;
-    public float stepDist = 4f;
-    SpriteRenderer charRend;
-
+    private SpriteRenderer charRend;
     private Rigidbody2D coll;
-    // Start is called before the first frame update
+
     void Awake()
     {
         play = this;
@@ -47,7 +46,6 @@ public class Player : MonoBehaviour
         barHUD.Add(bar3.GetComponent<SpriteRenderer>());
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
