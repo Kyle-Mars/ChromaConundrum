@@ -153,7 +153,6 @@ MonoBehaviour:
   reqList: 02000000
   ColorSwatch: {fileID: 11400000, guid: 71118afaf4f207240964af1ea9b9b6bd, type: 2}
   player: {fileID: 0}
-  hitbox: {fileID: 1849656572559502186}
 --- !u!1 &1849656572211287053
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849656572211287053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 0.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -347,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849656572547811629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 0.35, y: 0.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -416,6 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1849656572559502184}
   - component: {fileID: 1849656572559502185}
+  - component: {fileID: 7809330775904225328}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -463,4 +463,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0.3
+  m_EdgeRadius: 1.1
+--- !u!114 &7809330775904225328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849656572559502186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a275bfd5acc79543bd0532765fe1e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currGate: {fileID: 1849656571395070157}
