@@ -8,16 +8,7 @@ public class SceneChange : MonoBehaviour
     void Start()
     {
         Scene scene = SceneManager.GetActiveScene();
-
-        if (scene.name != "Start")
-        {
-            ChangeScene("Start");
-        }
-    }
-
-    void Update()
-    {
-        
+        if (scene.name != "Start") ChangeScene("Start");
     }
 
     static public void ChangeScene(string scenename)
