@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da85d4cc0faec0f4e9c0050c26613f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  fillRate: 2
+  color: 3
+  fillRate: 1

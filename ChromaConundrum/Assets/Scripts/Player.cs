@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         if (colorBar.Count<ColorBars>(x => x == ColorBars.Red) == 1 && colorBar.Count<ColorBars>(x => x == ColorBars.Blue) == 2) charRend.color = ColorSwatch.ColorSwatches[8];
         if (colorBar.Count<ColorBars>(x => x == ColorBars.Yellow) == 2 && colorBar.Count<ColorBars>(x => x == ColorBars.Blue) == 1) charRend.color = ColorSwatch.ColorSwatches[4];
         if (colorBar.Count<ColorBars>(x => x == ColorBars.Yellow) == 1 && colorBar.Count<ColorBars>(x => x == ColorBars.Blue) == 2) charRend.color = ColorSwatch.ColorSwatches[3];
-        if (colorBar.Count<ColorBars>(x => x == ColorBars.Yellow) == 1 && colorBar.Count<ColorBars>(x => x == ColorBars.Blue) == 1 && colorBar.Count<ColorBars>(x => x == ColorBars.Red)  == 1 ) charRend.color = ColorSwatch.ColorSwatches[9];
+        if (colorBar.Count<ColorBars>(x => x == ColorBars.Yellow) == 1 && colorBar.Count<ColorBars>(x => x == ColorBars.Blue) == 1 && colorBar.Count<ColorBars>(x => x == ColorBars.Red)  == 1 ) charRend.color = ColorSwatch.ColorSwatches[14];
     }
 
     public void ClearBar()
@@ -93,9 +93,9 @@ public class Player : MonoBehaviour
         barFill = 0;
         print("Cleared the bar");
         charRend.color = ColorSwatch.ColorSwatches[10];
-        barHUD[0].color = ColorSwatch.ColorSwatches[11];
-        barHUD[1].color = ColorSwatch.ColorSwatches[11];
-        barHUD[2].color = ColorSwatch.ColorSwatches[11];
+        barHUD[0].color = ColorSwatch.ColorSwatches[13];
+        barHUD[1].color = ColorSwatch.ColorSwatches[13];
+        barHUD[2].color = ColorSwatch.ColorSwatches[13];
         full = false;
     }
 }

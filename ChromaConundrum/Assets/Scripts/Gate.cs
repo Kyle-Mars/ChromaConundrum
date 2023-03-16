@@ -38,16 +38,17 @@ public class Gate : MonoBehaviour
 
     public void Open()
     {
-        int used = -1;
+        bool used;
         numMet = 0;
         foreach (Player.ColorBars color in player.currBar)
         {
+            used = false;
             for (int i = 0; i < reqList.Count; i++)
             {
-                if (used != i && color == reqList[i])
+                if (!used && color == reqList[i])
                 {
                     numMet++;
-                    used = i + 1;
+                    used = true;
                 }
             }
         }

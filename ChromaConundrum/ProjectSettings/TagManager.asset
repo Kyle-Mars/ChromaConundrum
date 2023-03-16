@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Wires
+    uniqueID: 3991312603
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
