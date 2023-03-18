@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if(!moveInput.Equals(Vector2.zero)) ChromaConundrum.begin = true;        
         coll.velocity =  stepDist * moveInput;
 
         if(full) changeColor();
