@@ -15,12 +15,14 @@ public class Gate : MonoBehaviour
 
     void Awake()
     {
+        //Add color bar requirements to the gate.
         reqMet = false;
         currGate = this;
         for (int i = 0; i < reqList.Count; i++)
         {
             barHUD.Add(currGate.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>());
 
+            //Set color of each bar.
             if (reqList[i] == Player.ColorBars.Red) barHUD[i].color = ColorSwatch.ColorSwatches[0];
             else if (reqList[i] == Player.ColorBars.Blue) barHUD[i].color = ColorSwatch.ColorSwatches[2];
             else if (reqList[i] == Player.ColorBars.Yellow) barHUD[i].color = ColorSwatch.ColorSwatches[1];
@@ -29,6 +31,7 @@ public class Gate : MonoBehaviour
 
     void Update()
     {
+        //Check if the gate needs to be opened, ignore collision if so. 
         if(reqMet)
         {
             Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), currGate.GetComponent<Collider2D>());
@@ -38,6 +41,7 @@ public class Gate : MonoBehaviour
 
     public void Open()
     {
+        //Compare color bar of gate with color bar of Player. 
         bool used;
         numMet = 0;
         foreach (Player.ColorBars color in player.currBar)
@@ -57,6 +61,7 @@ public class Gate : MonoBehaviour
 
     public void Close()
     {
+        //Reset gate status.
         reqMet = false;
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), currGate.GetComponent<Collider2D>(), false);
         numMet = 0;

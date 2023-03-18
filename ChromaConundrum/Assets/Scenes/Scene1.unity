@@ -776,6 +776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerText: {fileID: 1966847356}
+  resetHighScoreNow: 0
 --- !u!1001 &560944917
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,6 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        SceneChange.ChangeScene(nextScene);
+        ChromaConundrum.ChangeScene(nextScene);
     }
 }

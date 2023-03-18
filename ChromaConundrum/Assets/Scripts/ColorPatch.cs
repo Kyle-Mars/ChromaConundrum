@@ -8,11 +8,13 @@ public class ColorPatch : MonoBehaviour
     public float fillRate = 1f;
     private float fullTime;
 
+    //Begin filling Player's color bar.
     void OnTriggerEnter2D(Collider2D col)
     {
         fullTime = Time.time + fillRate;
     }
 
+    //Fill Player's color bar in increments.
     void OnTriggerStay2D(Collider2D col)
     {
         if(Time.time > fullTime)

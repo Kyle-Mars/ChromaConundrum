@@ -17,6 +17,7 @@ public class Switch : MonoBehaviour
 
     void Awake()
     {
+        //Add color bar to Switch.
         toggled = false;
         reqMet = false;
         currSwitch = this;
@@ -32,6 +33,7 @@ public class Switch : MonoBehaviour
 
     void Update()
     {
+        //Check if Switch has been activated. Toggle Switch and indicated component if true.
         if (reqMet && Input.GetKeyDown(KeyCode.Space))
         {
             print("space key was pressed");
@@ -45,6 +47,7 @@ public class Switch : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        //Compare color bar of Switch to color bar of Player.
         bool used;
         numMet = 0;
         foreach (Player.ColorBars color in player.currBar)
@@ -64,12 +67,14 @@ public class Switch : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
+        //Reset Switch state.
         reqMet = false;
         numMet = 0;
     }
 
     void Toggle()
     {
+        //Toggle collision and rendering for indicated component. Disable if enabled, enable if disabled.
         if (toggled)
         {
             toggles.GetComponent<SpriteRenderer>().color = ColorSwatch.ColorSwatches[11];

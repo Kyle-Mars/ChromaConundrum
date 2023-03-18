@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        //Get Renderers for color bars.
         charRend = GetComponent<SpriteRenderer>();
         barHUD.Add(bar1.GetComponent<SpriteRenderer>());
         barHUD.Add(bar2.GetComponent<SpriteRenderer>());
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        //Move player. Set begin to true on first player movement.
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if(!moveInput.Equals(Vector2.zero)) ChromaConundrum.begin = true;        
         coll.velocity =  stepDist * moveInput;
@@ -57,6 +59,7 @@ public class Player : MonoBehaviour
 
     public void fillBar(ColorBars color)
     {
+        //If color bar is not full, add color and alter designated color bar.
         if(barFill < 3 && color != ColorBars.Clear)
         {
             colorBar.Add(color);
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour
             if (barFill == 3) full = true;
         }
 
+        //If the color being added is clear, remove all color from bar.
         else if(color == ColorBars.Clear)
         {
             ClearBar();
@@ -76,6 +80,7 @@ public class Player : MonoBehaviour
 
     private void changeColor()
     {
+        //Check combinations of color bars to change player color appropriately. 
         if (colorBar.Count<ColorBars>(x => x == ColorBars.Red) == 3) charRend.color = ColorSwatch.ColorSwatches[0];
         if (colorBar.Count<ColorBars>(x => x == ColorBars.Yellow) == 3) charRend.color = ColorSwatch.ColorSwatches[1];
         if (colorBar.Count<ColorBars>(x => x == ColorBars.Blue) == 3) charRend.color = ColorSwatch.ColorSwatches[2];
@@ -90,6 +95,7 @@ public class Player : MonoBehaviour
 
     public void ClearBar()
     {
+        //Clear the color bar and reset values.
         colorBar.Clear();
         barFill = 0;
         print("Cleared the bar");
