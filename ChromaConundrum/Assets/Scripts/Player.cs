@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         //Get Renderers for color bars.
+        ChromaConundrum.begin = false;
         charRend = GetComponent<SpriteRenderer>();
         barHUD.Add(bar1.GetComponent<SpriteRenderer>());
         barHUD.Add(bar2.GetComponent<SpriteRenderer>());
