@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class ChromaConundrum : MonoBehaviour
 {
+    static private ChromaConundrum S;
+
     public TMPro.TMP_Text TimerText;
     public TMPro.TMP_Text FinalTime;
 
     private float Timer;
     public static bool begin;
+
+    void Start()
+    {
+        S = this;
+        begin = false;
+    }
 
     void Update()
     {
@@ -24,7 +32,7 @@ public class ChromaConundrum : MonoBehaviour
             TimerText.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + milliseconds.ToString("00");
 
             //Save most recent completion time.
-            PlayerPrefs.SetString("BestTime", TimerText.text);
+            PlayerPrefs.SetString("LastTime", TimerText.text);
 
             //Restart level on R press.
             if (Input.GetKeyDown(KeyCode.R))
@@ -35,9 +43,9 @@ public class ChromaConundrum : MonoBehaviour
         }
 
         //Display most recent completion time.
-        if (FinalTime != null &&  PlayerPrefs.HasKey("BestTime"))
+        if (FinalTime != null &&  PlayerPrefs.HasKey("LastTime"))
         {
-            FinalTime.text = PlayerPrefs.GetString("BestTime");
+            FinalTime.text = PlayerPrefs.GetString("LastTime");
         }
     }
 
@@ -46,15 +54,14 @@ public class ChromaConundrum : MonoBehaviour
         SceneManager.LoadScene(scenename);
     }
 
-    [Tooltip("Check this box to reset the HighScore in PlaerPrefs")]
+    [Tooltip("Check this box to reset the LastTime in PlaerPrefs")]
     public bool resetHighScoreNow = false;
     void onDrawGizmos()
     {
         if (resetHighScoreNow)
         {
             resetHighScoreNow = false;
-            PlayerPrefs.SetInt("HighScore", 1000);
-            Debug.LogWarning("PlayerPrefs HighScore reset to 1,000.");
+            PlayerPrefs.SetString("LastTime", "00:00:00");
         }
     }
 }
